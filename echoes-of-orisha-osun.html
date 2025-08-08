@@ -6,19 +6,51 @@
   <title>Echoes of Orisha: Osun</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
+   <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Marcellus&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
 
+      module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        indigoBrand: '#6C63FF', // Primary color
+        pinkAccent: '#FF6584', // Accent color
+        lightGray: '#F8F9FA', // Background color
+        charcoalGray: '#343A40', // Text color
+        darkSlate: '#1F2937', // Footer background
+
+        // Osun Colors
+        osunGold: '#D4AF37', // Rich Gold
+        osunWhite: '#FFFFFF',
+        osunBlack: '#000000'
+      },
+      fontFamily: {
+        domine: ['Domine', 'serif'],
+        Ogg: ['Ogg', 'sans-serif'],
+      },
+      screens: {
+        'xs': '480px',
+      }
+    },
+  },
+  plugins: [],
+};
+
+    
+  </script>
   <style>
     .fade {
       transition: opacity 0.5s ease-in-out;
     }
   </style>
 </head>
-<body class="m-0 p-0 box-border">
+<body class="m-0 p-0 box-border desc-font">
 
 <!-- Navbar -->
   <nav id="navbar" class="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center  bg-opacity-80  transition-all duration-500">
-    <div id="site-title" class="text-xl text-white font-bold">Echoes of Orisha: Osun</div>
+    <div id="site-title" class="text-xl text-white font-bold title-font ">Echoes of Orisha: Osun</div>
     <button id="menu-toggle" class="text-white text-3xl focus:outline-none z-50">
       ☰
     </button>
@@ -34,12 +66,12 @@
       </div>
 
       <!-- Right Side Menu -->
-<div id="menu-right" class="w-full md:w-1/2 flex flex-col justify-center items-center gap-8 text-2xl font-semibold text-center">
-  <a href="#about" class="menu-item" data-image="image/camping-milky-way.jpg">About</a>
-  <a href="#character" class="menu-item" data-image="image/hanson-lu-MOHTDu-68no-unsplash.jpg">Characters</a>
-  <a href="#environment" class="menu-item" data-image="image/">Environment</a>
-  <a href="#tools" class="menu-item" data-image="image/">Tools Used</a>
-  <a href="#contact" class="menu-item" data-image="image/">Contact</a>
+<div id="menu-right" class="w-full md:w-1/2 flex flex-col justify-center items-center gap-8 text-2xl font-semibold text-center ">
+  <a href="#about" class="menu-item title-font" data-image="image/camping-milky-way.jpg">About</a>
+  <a href="#character" class="menu-item title-font" data-image="image/hanson-lu-MOHTDu-68no-unsplash.jpg">Characters</a>
+  <a href="#environment" class="menu-item title-font" data-image="image/">Environment</a>
+  <a href="#tools" class="menu-item title-font" data-image="image/">Tools Used</a>
+  <a href="#contact" class="menu-item title-font" data-image="image/">Contact</a>
 </div>
 
     </div>
@@ -62,67 +94,102 @@
     </div>
     
     <!-- Scroll to Explore -->
-    <div id="scroll-indicator" class="mt-6 text-white text-sm sm:text-base animate-bounce transition-opacity duration-300">
+    <div id="scroll-indicator" class="mt-6 text-white text-sm sm:text-base animate-bounce transition-opacity duration-300 desc-font">
         ↓ Scroll to explore
     </div>
 
   </div>
 </section>
 
+<!-- About Section -->
+<section id="about" class="h-screen py-20 bg-gray-100">
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+    
+    <!-- Replace Image with GLB -->
+    <model-viewer 
+      src="image/about.glb"
+      alt="Osun Illustration"
+      auto-rotate 
+      camera-controls 
+      ar
+      shadow-intensity="0"
+      class="w-full h-[300px] ">
+    </model-viewer>
 
-  <!-- About Section -->
-  <section id="about" class="h-screen py-20 bg-gray-100">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center ">
-      <img src="image/blender_logo.svg" alt="Osun Illustration" class="rounded-lg shadow-md aboutImg image">
-      <div>
-        <h2 class="text-3xl font-bold mb-8 title">About the Game</h2>
-        <p class=" text-justify">
-         <span class="text-purple-800"> Echoes of Orisha: Osun </span>is an experimental game project inspired by the rich mythology of the Yoruba people, 
-         centered around Òṣun — goddess of water, fertility, and compassion. The player journeys through sacred natural landscapes as Osun, guided by emotional 
-         memories and echoes of the past. The game explores identity, grief, divinity, and rebirth through atmospheric environments and interactive storytelling.
-        </p>
-      </div>
+    <div>
+      <p class="text-justify desc-font">
+        <span class="text-purple-800 font-bold text-3xl mb-8 title title-font">Echoes of Orisha: Osun</span> 
+        is an experimental game project inspired by the rich mythology of the Yoruba people, 
+        centered around Òṣun: goddess of water, fertility, and compassion. The player journeys through 
+        sacred natural landscapes as Osun, guided by emotional memories and echoes of the past. 
+        The game explores identity, grief, divinity, and rebirth through atmospheric environments and 
+        interactive storytelling.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Character Design Section -->
-  <section id="character" class="carousel h-screen py-20 bg-purple-100 text-center">
-     
-      
-      <!--<div>
-        <p class=" text-justify">
-         <span class="text-purple-800"> Osun</span> was designed to reflect both divine grace and human emotion. Her visual style combines glowing symbols, fluid clothing, and natural textures like gold, silk, and leaves.
+<!-- Character Design Section -->
+<section id="character" class="py-20 bg-purple-100 text-center">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+
+      <!-- Text Content -->
+      <div class="text-left max-w-xl">
+        <h3 class="text-4xl font-bold text-purple-800 mb-4 title title-font">Osun</h3>
+        <p class="text-justify text-gray-700 mb-6 desc-font">
+          Osun was designed to reflect both divine grace and human emotion. Her visual style combines glowing symbols,
+          fluid clothing, and natural textures like gold, silk, and leaves.
         </p>
       </div>
-      <img src="your-about-image.jpg" alt="Osun Illustration" class="rounded-lg shadow-md">-->
 
-      <div class="max-w-6xl mx-auto px-4 flex justify-center gap-8 flex-wrap items-center ">
-         <h2 class="text-3xl font-bold mb-4 title">Character Design</h2>
-        <div class="item">
-          <div class="bg"></div>
-          <div class="info-box">
-            <div class="info-slider">
-              <div class="info-item" style="--i:0;">
-                <h2>Osun</h2>
-                <p>loren Osun was designed to reflect both divine grace and human emotion.
-                   Her visual style combines glowing symbols, fluid clothing, and natural textures like gold, silk, and leaves.</p>
-              </div>
-            </div>
-          </div>
-          <div class="img-box">
-            <div class="img-slider">
-              <div class="img-item" style="--i:0;">
-                <img src="" alt="Osun goddess">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
+      <!-- Replace Image with GLB -->
+      <model-viewer 
+        id="main-character"
+        src="image/OsunStand.glb"
+        alt="Osun Character"
+        auto-rotate 
+        camera-controls 
+        ar
+        shadow-intensity="1"
+        class="w-80 h-[400px] mx-auto drop-shadow-xl transition duration-300">
+      </model-viewer>
+    </div>
+
+    <!-- Character Thumbnails -->
+    
+    <!--<ul class="flex justify-center gap-6 mt-10">
+      <li>
+        <img src="thumbnails/osun_thumb1.png" 
+             onclick="changeModel('image/OsunStand.glb')" 
+             class="w-12 h-12 cursor-pointer hover:scale-110 transition">
+      </li>
+      <li>
+        <img src="thumbnails/osun_thumb2.png" 
+             onclick="changeModel('models/osun_variant1.glb')" 
+             class="w-12 h-12 cursor-pointer hover:scale-110 transition">
+      </li>
+      <li>
+        <img src="thumbnails/osun_thumb3.png" 
+             onclick="changeModel('models/osun_variant2.glb')" 
+             class="w-12 h-12 cursor-pointer hover:scale-110 transition">
+      </li>
+    </ul>-->
+  </div>
+</section>
+
+<script>
+  function changeModel(modelPath) {
+    document.getElementById('main-character').setAttribute('src', modelPath);
+  }
+</script>
+
+
+
 
     <!-- Environments Section -->
    <section id="environment" class="py-20 bg-white">
-  <h2 class="text-3xl font-bold text-center mb-10 title">Environments</h2>
+  <h2 class="text-3xl font-bold text-center mb-10 title title-font ">Environments</h2>
   <div class="max-w-6xl mx-auto px-4 flex justify-center gap-8 flex-wrap aboutImg image">
     <img src="env1.jpg" alt="Environment 1" class="w-80 rounded shadow-md">
     <img src="env2.jpg" alt="Environment 2" class="w-80 rounded shadow-md">
@@ -133,7 +200,7 @@
 
    <!-- Tools Used Section -->
   <section id="tools" class="py-20 bg-gray-100">
-    <h2 class="text-3xl font-bold text-center mb-10 title">Tools Used</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 title title-font ">Tools Used</h2>
     <div class="overflow-x-auto whitespace-nowrap px-4 flex gap-8 items-center justify-center scroll-container aboutImg image">
       <img src="image/UE-Icon-2023-Black.svg" alt="unreal Engine" class="h-16 scroll-item">
       <img src="image/blender_logo.svg" alt="Blender" class="h-16 scroll-item">
@@ -247,6 +314,8 @@
   <!-- ✅ GSAP & ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 
   <script type="module" src="main.js "></script>
 </body>
