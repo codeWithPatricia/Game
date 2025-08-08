@@ -194,3 +194,41 @@ gsap.utils.toArray('p').forEach(p=>{
 
     })
 })
+
+// Osun  Character Page
+// Character data
+const characters = {
+  char1: {
+    image: "char1.jpg",
+    name: "Character One",
+    description: "This is the description for Character One."
+  },
+  char2: {
+    image: "char2.jpg",
+    name: "Character Two",
+    description: "This is the description for Character Two."
+  },
+  char3: {
+    image: "char3.jpg",
+    name: "Character Three",
+    description: "This is the description for Character Three."
+  }
+};
+
+// DOM elements
+const mainImg = document.getElementById("main-character");
+const charName = document.getElementById("character-name");
+const charDesc = document.getElementById("character-description");
+
+// Event listener for thumbnails
+document.querySelectorAll("[data-id]").forEach(thumb => {
+  thumb.addEventListener("click", () => {
+    const charId = thumb.getAttribute("data-id");
+    const charData = characters[charId];
+
+    // Change image & text
+    mainImg.src = charData.image;
+    charName.textContent = charData.name;
+    charDesc.textContent = charData.description;
+  });
+});
